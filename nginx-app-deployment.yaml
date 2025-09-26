@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx-app-deployment
+  name: nginx-app-deployment
+spec:
+  replicas: 10
+  minReadySeconds: 30
+  selector:
+    matchLabels:
+      app: nginx-app-deployment
+  strategy: 
+    rollingUpdate:
+       maxSurge: 0
+       maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx-app-deployment
+    spec:
+      containers:
+      - image: nginx:latest
+        name: first-container
+        args: ["sleep", "3600"]
+        resources: {}
+        env:
+         - name: playwright
+           value: python
+         - name: selenium
+           value: java
+        ports:
+        - containerPort: 80
+           
+status: {}

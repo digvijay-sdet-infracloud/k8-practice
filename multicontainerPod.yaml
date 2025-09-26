@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: main-container
+  name: mypod
+spec:
+  containers:
+  - image: nginx:latest
+    name: main-container
+    args: ["sleep","3600"]
+  - image: nginx:1.29.1
+    name: second-container
+    resources: {}
+  initContainers:
+  - image: nginx:latest
+    name: init-container
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
