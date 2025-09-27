@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  database-password: admin123
+  database-username: root
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: database-config

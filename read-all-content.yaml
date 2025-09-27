@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend-deploy
+  name: backend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: backend-deploy
+    spec:
+      containers:
+      - image: php:latest
+        name: php
+        args: ["sleep", "3600"]
+        envFrom:
+          - configMapRef:
+               name: database-config
+status: {}

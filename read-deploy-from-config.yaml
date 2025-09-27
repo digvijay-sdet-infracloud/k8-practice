@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend-deploy
+  name: frontend-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend-deploy
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        env:
+         - name: DB_USERNAME
+           valueFrom:
+              configMapKeyRef:
+                 key: database-username
+                 name: database-config
+status: {}

@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  env.sh: |
+    echo "I am test1"
+    echo "I am test2"
+    echo "I am test3"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: envfile
