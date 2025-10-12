@@ -1,0 +1,1 @@
+curl --resolve example.com:80:192.168.49.2 http://example.com

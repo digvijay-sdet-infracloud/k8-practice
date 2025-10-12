@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mongo-deploy
+  name: mongo-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mongo-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mongo-deploy
+    spec:
+      containers:
+      - image: mongo:4.4
+        name: mongo
+        resources: {}
+status: {}
